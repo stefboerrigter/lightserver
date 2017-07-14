@@ -8,7 +8,7 @@ if(!(isset($_GET['lamp'])) || (!(isset($_GET['status']))))
 $lamp = intval($_GET['lamp']);
 $stat = intval($_GET['status']);
 
-$address = '192.168.188.70';
+$address = '192.168.188.24';
 $port = 5005;
 $data = sprintf("LIGHT[%04d][%04d]SWITCH\0", $lamp, $stat);
 
