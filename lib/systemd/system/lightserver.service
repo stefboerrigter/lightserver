@@ -1,0 +1,11 @@
+[Unit]
+Description=Lightserver
+After=getty.target generic-board-startup.service
+
+[Service]
+ExecStart=/usr/sbin/lightserver
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
