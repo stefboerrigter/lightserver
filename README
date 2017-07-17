@@ -1,0 +1,9 @@
+   ===== Lightserver ======
+
+This is a small program i use on an embedded micro-pc (Beaglebone / Raspberry) to
+setup a socket and listen on a specific port. the received messages shall toggle a
+gpio that is connected to an Relay that enables me to remotely control lights
+via an ethernet command. The commands are send via the process.php script that run
+on my private webserver. since it is only internal there are no security meassures
+taken of any kind.
+
