@@ -7,3 +7,5 @@ via an ethernet command. The commands are send via the process.php script that r
 on my private webserver. since it is only internal there are no security meassures
 taken of any kind.
 
+sudo apt-get install cpp-arm-linux-gnueabihf 
+sudo apt-get install gcc-arm-linux-gnueabihf 

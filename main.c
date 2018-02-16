@@ -12,6 +12,8 @@
 
 const char *pLight1gpio = "/sys/class/gpio/gpio60/value\0";
 const char *pLight2gpio = "/sys/class/gpio/gpio48/value\0";
+const char *pLight3gpio = "/sys/class/gpio/gpio115/value\0";
+const char *pLight4gpio = "/sys/class/gpio/gpio117/value\0";
 char buff[SIZEOF_BUFF];
 
 int main(int argc , char *argv[])
@@ -75,6 +77,12 @@ int main(int argc , char *argv[])
                     break;
                 case 2:
                     pGpio = pLight2gpio;
+                    break;
+                case 3:
+                    pGpio = pLight3gpio;
+                    break;
+                case 4:
+                    pGpio = pLight4gpio;
                     break;
                 default:
                     break;

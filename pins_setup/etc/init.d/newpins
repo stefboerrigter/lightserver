@@ -16,15 +16,23 @@ do_start () {
 echo "pins- Initializing pins"
 echo 60 > /sys/class/gpio/export
 echo 48 > /sys/class/gpio/export
+echo 115 > /sys/class/gpio/export
+echo 117 > /sys/class/gpio/export
 echo "out" > /sys/class/gpio/gpio60/direction
 echo "out" > /sys/class/gpio/gpio48/direction
+echo "out" > /sys/class/gpio/gpio115/direction
+echo "out" > /sys/class/gpio/gpio117/direction
 chmod 777 /sys/class/gpio/gpio48/value
 chmod 777 /sys/class/gpio/gpio60/value
+chmod 777 /sys/class/gpio/gpio115/value
+chmod 777 /sys/class/gpio/gpio117/value
 }
 
 do_cleanup() {
 echo 60 > /sys/class/gpio/unexport
 echo 48 > /sys/class/gpio/unexport
+echo 115 > /sys/class/gpio/unexport
+echo 117 > /sys/class/gpio/unexport
 echo "pins- Cleanup called"
 
 }
