@@ -1,0 +1,48 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          single
+# Required-Start:    $local_fs $all killprocs
+# Required-Stop:
+# Default-Start:     1
+# Default-Stop:
+# Short-Description: executed by init(8) upon entering runlevel 1 (single).
+### END INIT INFO
+
+PATH=/sbin:/bin
+
+. /lib/lsb/init-functions
+
+do_start () {
+echo "pins- Initializing pins"
+echo 60 > /sys/class/gpio/export
+echo 48 > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio60/direction
+echo "out" > /sys/class/gpio/gpio48/direction
+chmod 777 /sys/class/gpio/gpio48/value
+chmod 777 /sys/class/gpio/gpio60/value
+}
+
+do_cleanup() {
+echo 60 > /sys/class/gpio/unexport
+echo 48 > /sys/class/gpio/unexport
+echo "pins- Cleanup called"
+
+}
+
+case "$1" in
+  start)
+	do_start
+	;;
+  restart|reload|force-reload)
+ 	do_cleanup
+	do_start	
+	;;
+  stop|status)
+	# No-op
+        do_cleanup
+	;;
+  *)
+	echo "Usage: $0 start|stop" >&2
+	exit 3
+	;;
+esac
