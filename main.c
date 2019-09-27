@@ -18,7 +18,7 @@ char buff[SIZEOF_BUFF];
 
 int main(int argc , char *argv[])
 {
-    int socket_desc , client_sock , c;
+    int socket_desc, c;
     struct sockaddr_in server , client;
     char client_message[200];
 
@@ -50,7 +50,7 @@ int main(int argc , char *argv[])
     c = sizeof(struct sockaddr_in);
     
     for(;;){ //forever
-        int read_size;
+        int read_size, client_sock;
         //accept connection from an incoming client
         client_sock = accept(socket_desc, (struct sockaddr *)&client, (socklen_t*)&c);
         if (client_sock < 0){
@@ -69,7 +69,7 @@ int main(int argc , char *argv[])
 
 //          printf("Received %s\n", client_message);
             sscanf(client_message, format, &light, &status);
-            printf("Read: %u, %d\n", light, status);
+            printf("Read: %u, %u\n", light, status);
             switch(light){
                 case 1:
                     pGpio = pLight1gpio;
