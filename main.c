@@ -21,7 +21,6 @@ int main(int argc , char *argv[])
     int socket_desc , client_sock , c , read_size;
     struct sockaddr_in server , client;
     char client_message[200];
-    char format[] = "LIGHT[%04d][%04d]SWITCH\0";
 
     //Create socket
     socket_desc = socket(AF_INET , SOCK_STREAM , 0);
